@@ -10,6 +10,7 @@
 
 /* header */
 
+// nav
 .navbar-static-top {
   border-color: #e7e7e7;
   background-color: #fff;
@@ -25,6 +26,7 @@ html {
   min-height: 100% ;
 }
 
+// 底部样式
 .footer {
   position: absolute;
   bottom: 0;
@@ -45,5 +47,15 @@ html {
         color: inherit;
       }
     }
+  }
+}
+
+// 注册页面
+/* User register page */
+.register-page {
+  img.captcha {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    cursor: pointer;
   }
 }
