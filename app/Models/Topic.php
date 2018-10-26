@@ -48,8 +48,14 @@ class Topic extends Model
         return $query->orderBy('updated_at', 'desc');
     }
 
+    // SEO 优化 html
     public function link($params = [])
     {
         return route('topics.show', array_merge([$this->id, $this->slug], $params));
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }
