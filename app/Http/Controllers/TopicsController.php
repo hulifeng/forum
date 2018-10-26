@@ -14,9 +14,10 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request, Topic $topic)
 	{
-		$topics = Topic::with(['user', 'category'])->paginate();
+		$topics = $topic->withOrder($request->order)->paginate(30);
+
 		return view('topics.index', compact('topics'));
 	}
 
@@ -33,18 +34,21 @@ class TopicsController extends Controller
 	public function store(TopicRequest $request)
 	{
 		$topic = Topic::create($request->all());
+
 		return redirect()->route('topics.show', $topic->id)->with('message', 'Created successfully.');
 	}
 
 	public function edit(Topic $topic)
 	{
         $this->authorize('update', $topic);
+
 		return view('topics.create_and_edit', compact('topic'));
 	}
 
 	public function update(TopicRequest $request, Topic $topic)
 	{
 		$this->authorize('update', $topic);
+
 		$topic->update($request->all());
 
 		return redirect()->route('topics.show', $topic->id)->with('message', 'Updated successfully.');
@@ -53,6 +57,7 @@ class TopicsController extends Controller
 	public function destroy(Topic $topic)
 	{
 		$this->authorize('destroy', $topic);
+
 		$topic->delete();
 
 		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
