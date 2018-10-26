@@ -43,7 +43,7 @@ class TopicsController extends Controller
 
         $topic->save();
 
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Created successfully.');
+        return redirect()->route('topics.show', $topic->id)->with('success', '成功创建主题！');
 	}
 
 	public function edit(Topic $topic)
@@ -59,7 +59,7 @@ class TopicsController extends Controller
 
 		$topic->update($request->all());
 
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Updated successfully.');
+		return redirect()->route('topics.show', $topic->id)->with('success', '更新话题成功！');
 	}
 
 	public function destroy(Topic $topic)
@@ -68,7 +68,7 @@ class TopicsController extends Controller
 
 		$topic->delete();
 
-		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('topics.index')->with('success', '删除话题成功！');
 	}
 
     public function uploadImage(Request $request, ImageUploaderHandler $uploader)
