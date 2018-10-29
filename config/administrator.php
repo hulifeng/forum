@@ -46,7 +46,10 @@ return array(
             'categories',
             'topics', // 对应需要创建的文件：`config/administrator/posts.php`
             'replies',
-        ]
+        ],
+        '站点管理' => [
+            'settings.site',
+        ],
     ],
 
     /*
