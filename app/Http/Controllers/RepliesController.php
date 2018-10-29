@@ -18,6 +18,12 @@ class RepliesController extends Controller
     public function store(ReplyRequest $request, Reply $reply)
     {
         $reply->content = $request->input('content');
+
+        // 如果过滤过的内容为空
+        if (empty(clean($reply->content, 'user_topic_body'))) {
+            return redirect()->back()->with('danger', '回复内容错误！');
+        }
+
         $reply->user_id = Auth::id();
         $reply->topic_id = $request->topic_id;
         $reply->save();
