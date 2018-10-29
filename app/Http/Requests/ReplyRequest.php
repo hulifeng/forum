@@ -4,6 +4,12 @@ namespace App\Http\Requests;
 
 class ReplyRequest extends Request
 {
+    public function authorize()
+    {
+        // Using policy for Authorization
+        return true;
+    }
+
     public function rules()
     {
         return [

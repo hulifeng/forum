@@ -8947,6 +8947,10 @@ html {
   border-top: 1px solid #dcebf5;
 }
 
+.topic-reply {
+  margin-bottom: 116px;
+}
+
 .topic-reply hr {
   margin-top: 16px;
   margin-bottom: 16px;

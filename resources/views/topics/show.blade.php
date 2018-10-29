@@ -44,7 +44,6 @@
                     </div>
 
                     <div class="operate">
-                        <hr>
                         @can('update', $topic)
                             <div class="operate">
                                 <hr>
@@ -63,7 +62,6 @@
                             </div>
                         @endcan
                     </div>
-
                 </div>
             </div>
             {{-- 用户回复列表 --}}
