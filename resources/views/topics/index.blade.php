@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-9 col-md-9 topic-list">
+    <div class="col-lg-9 col-md-9 topic-list" style="margin-bottom: 116px;">
         {{--@if($category)--}}
             {{--<div class="alert alert-info" role="alert">--}}
                 {{--{{ $category->name }} : {{ $category->description }}--}}
