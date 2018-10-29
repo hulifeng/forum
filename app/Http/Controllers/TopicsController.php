@@ -30,9 +30,7 @@ class TopicsController extends Controller
             return redirect($topic->link(), 301);
         }
 
-        $replies =  $topic->replies()->with('user')->get();
-
-        return view('topics.show', compact('topic', 'replies'));
+        return view('topics.show', compact('topic'));
     }
 
 	public function create(Topic $topic)
